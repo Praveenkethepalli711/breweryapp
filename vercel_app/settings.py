@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app','localhost']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rating',
     'example'
 ]
 
@@ -78,6 +79,21 @@ WSGI_APPLICATION = 'vercel_app.wsgi.app'
 
 DATABASES = {}
 
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'ENFORCE_SCHEMA': False,  # Set this to False to avoid schema validation
+        'NAME': 'Pandu',
+        'CLIENT': {
+            'host': 'mongodb+srv://190030921cse:mBhkEmgnUWlNn3oq@cluster0.g1orulv.mongodb.net/Praveen',  # Add the database name to the host
+            'username': '190030921cse',
+            'password': 'mBhkEmgnUWlNn3oq',
+            'authSource': 'admin',  # Set the authentication source to 'admin'
+        }
+    }
+}
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
