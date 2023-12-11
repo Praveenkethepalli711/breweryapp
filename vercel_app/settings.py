@@ -97,7 +97,7 @@ DATABASES = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'django.db.backends.postgresql',
         'ENFORCE_SCHEMA': False,  # Set this to False to avoid schema validation
         'NAME': 'railway',
         'USER':'postgres',
