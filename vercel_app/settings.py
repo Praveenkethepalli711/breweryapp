@@ -82,7 +82,7 @@ DATABASES = {}
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'djongo.backends.mongodb',
         'ENFORCE_SCHEMA': False,  # Set this to False to avoid schema validation
         'NAME': 'Pandu',
         'CLIENT': {
