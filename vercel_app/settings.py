@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'vercel_app.wsgi.app'
 '''
 DATABASES = {}
 '''
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'djongo.backends.mongodb',
@@ -91,6 +91,19 @@ DATABASES = {
             'password': 'mBhkEmgnUWlNn3oq',
             'authSource': 'admin',  # Set the authentication source to 'admin'
         }
+    }
+}
+'''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'ENFORCE_SCHEMA': False,  # Set this to False to avoid schema validation
+        'NAME': 'railway',
+        'USER':'postgres',
+        'PASSWORD':'*A*BaG2FfGdDCafDDDfC2cC6*FB6dEB*',
+        'HOST':'viaduct.proxy.rlwy.net',
+        'PORT':'29259',
     }
 }
 
