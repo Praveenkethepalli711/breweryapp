@@ -1,35 +1,129 @@
-<!-- ratings/templates/ratings/all_ratings.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Ratings</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
+
+<div class="navbar">
     <h1>All Ratings</h1>
     <a href="{% url 'profile' %}">Home</a>
-    <table>
-        <thead>
-            <tr>
-                <th>Brewery Name</th>
-                <th>Stars</th>
-                <th>Comment</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for rating in ratings %}
-                <tr>
-                    <td>{{ rating.brewery_name }}</td>
-                    <td>{{ rating.stars }}</td>
-                    <td>{{ rating.comment }}</td>
-                </tr>
-                <form method="post" action="{% url 'delete_rating' rating.id %}">
-                    {% csrf_token %}
-                    <button type="submit">Delete Rating</button>
-                </form>
-                
-            {% endfor %}
-        </tbody>
-    </table>
-    
+    <a href="{% url 'brewery_list' %}" >BreweryList</a>
+    <a href="{% url 'all_ratings' %}" >Ratings</a>
+    <a href="{% url 'brewery_search' %}" >Search</a>
+    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+</div>
+
+{% if ratings %}
+    <div class="card-container">
+        {% regroup ratings by brewery_name as brewery_ratings %}
+        {% for brewery_rating in brewery_ratings %}
+            <div class="card">
+                <div class="card-content">
+                    <h2>{{ brewery_rating.grouper }}</h2>
+                    <p>Average Rating: {{ brewery_rating.list.0.avg_rating|default:"No ratings yet"|floatformat:1 }}</p>
+                    <ul>
+                        {% for rating in brewery_rating.list %}
+                            <li>
+                                <p>Stars: {{ rating.stars }}</p>
+                                <p>Comment: {{ rating.comment }}</p>
+                                <form method="post" action="{% url 'delete_rating' rating.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit">Delete Rating</button>
+                                </form>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
 </body>
 </html>

@@ -47,7 +47,7 @@ class Rating(models.Model):
     @classmethod
     def get_average_rating_for_brewery(cls, brewery):
         # Get the average rating for a specific brewery
-        ratings = cls.objects.filter(brewery_name=brewery.name)
+        ratings = cls.objects.filter(brewery_name=brewery)
         if ratings.exists():
             return ratings.aggregate(models.Avg('stars'))['stars__avg']
         return None

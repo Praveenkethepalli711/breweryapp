@@ -3,201 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BREWERY Review System{% endblock %}</title>
     <style>
-      body{
-    background-color: rgb(129, 17, 235);
-}
-.container{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-.header{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    list-style-type: none;
-    
-}
-li {
-    margin-left: 30px;
-    color: white;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+        body {
+            background-color: hsla(330, 56%, 68%, 0.313); /* Replace with your desired background color */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: 'Arial', sans-serif; /* Use your preferred font-family */
+        }
 
-}
-a{
-    text-decoration: none;
-    color: white;
-}
-.logo{
-    height: 30px;
-    width: 30px;
-    border-radius: 20px;
-    margin-top: 15px;
-}
-.sub1{
-    flex-grow: 3;
-    margin-left: 20px;
-}
-.sub2{
-    flex-grow: 7;
-}
-.butt1,.butt2{
-    height: 40px;
-    width: 120px;
-    background-color: transparent;
-    color: white;
-    border: 3px solid;
-    border-radius: 20px;
-    font-size: 20px;
-    font-weight: bold;
-}
-.butt2{
-    background-color:white;
-    color:rgb(126, 22, 223); 
-    font-size: 20px;
-    font-weight: bold;
-}
-.butt1:hover{
-    background-color:white;
-    color:rgb(126, 22, 223); 
-    font-size: 20px;
-}
-.butt2:hover{
-    opacity: 0.8;
-}
-li:hover{
-    opacity: 0.9;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-}
-.section{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.sub3,.sub4{
-    width: 50%;
-    height: 100%;
-}
-.sub3,.sub4{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.heading1,.heading2{
-    font-size: 80px;
-    color: white;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    text-shadow: 2px 2px 2px black;
-}
-.heading2{
-    font-size: 20px;
-    text-shadow: none;
-    word-spacing: 6px;
-    margin-left: 20px;
-}
-.image2{
-    width: 450px;
-    height: 400px;
-    margin-top: 50px;
-}
-.image3{
-    width: 300px;
-    height: 500px;
-    position:absolute;
-    top: 15%;
-}
-.butt3{
-    width: 150px;
-    height: 60px;
-    border-radius: 30px;
-}
-@media screen and (max-width: 480px) {
-    body {
-      background-color:rgb(129, 17, 235); 
-    }
-    .container{
-        display: flex;
-        flex-direction: column;
-    }
-    .header{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
-    }
-    .section{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        align-items: center;
-    }
-    .heading2{
-        font-size: 20px;
-        width: 100%;
-        height: 600px;
-    }
-    .image3{
-        position: absolute;
-        top: 1175px;
-        width: 200px;
-        height: 300px;
-    }
-    .image2{
-        width:300px;
-        height: 200px;
-    }
-  }
+        #header {
+            background-color: #333; /* Header background color */
+            color: #fff; /* Header text color */
+            padding: 10px; /* Header padding */
+            overflow: hidden; /* Clear floats */
+        }
+
+        #header a {
+            color: #fff; /* Link color in the header */
+            text-decoration: none; /* Remove underline from links */
+            padding: 10px; /* Link padding */
+            display: inline-block; /* Make links behave like blocks */
+        }
+
+        #header a:hover {
+            background-color: #555; /* Change background color on hover */
+        }
+
+        #header div {
+            float: left; /* Float left for the logout button */
+            text-align: center; /* Center text for the system name */
+        }
+
+        #header h1 {
+            margin: 0; /* Remove margin for the system name */
+        }
     </style>
-    <title>Document</title>
 </head>
-
 <body>
-    <div class="contianer">
-        <div class="header">
-          <div class="sub1">
-            <img src="https://mobirise.com/extensions/resultm5/affiliate-marketing/assets/images/logo.png" alt="" class="logo">
-          </div>
-          <div class="sub2">
-            <ul>
-                <li><a href="">Home</a></li>
-            </ul>
-          </div>
-          <div>
-            <a href="{% url 'login' %}">
-              <button class="">Login</button>
-            </a>
-            <a href="{% url 'signup' %}">
-              <button class="">Sign Up</button>
-            </a>
-          </div>
-        </div>
 
-        <div class="section">
-            <div class="sub3">
-                <h1 class="heading1">BREWERY</h1>
-                <p class="heading2">Brewery Rating Application </p>
-                    <button class="butt1 butt3">click to know more</button>
-            </div>
-            <div class="sub4">
-                <img src="https://mobirise.com/extensions/resultm5/affiliate-marketing/assets/images/image4.jpg" alt="" class="image2">
-                <img src="https://mobirise.com/extensions/resultm5/affiliate-marketing/assets/images/image16.jpg" alt="" class="image3">
-            </div>
-        </div>
+<div id="header">
+    
+    <div>
+        <h1>BREWERY Review System</h1>
     </div>
+    <div>
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+    <div>
+        <a href="{% url 'signup' %}">Signup</a>
+    </div>
+    <div>
+        <a href="{% url 'login' %}">Login</a>
+    </div>
+</div>
+
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+
 </body>
 </html>

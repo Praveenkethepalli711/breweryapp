@@ -83,6 +83,9 @@ def all_ratings(request):
     # Retrieve all ratings from the database
     # Pass the ratings to the template for rendering
     ratings = Rating.objects.all()
+    #
+    for rating in ratings:
+        rating.avg_rating = Rating.get_average_rating_for_brewery(rating.brewery_name)
     return render(request, 'all_ratings.html', {'ratings': ratings})
 
 def brewery_search(request):
