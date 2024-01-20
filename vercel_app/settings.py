@@ -101,9 +101,9 @@ DATABASES = {
         'ENFORCE_SCHEMA': False,  # Set this to False to avoid schema validation
         'NAME': 'railway',
         'USER':'postgres',
-        'PASSWORD':'*A*BaG2FfGdDCafDDDfC2cC6*FB6dEB*',
-        'HOST':'viaduct.proxy.rlwy.net',
-        'PORT':'29259',
+        'PASSWORD':'FFaa14cFC36FfbF31b5g5Gg-FFbA6Fg5',
+        'HOST':'monorail.proxy.rlwy.net',
+        'PORT':'36915',
     }
 }
 
